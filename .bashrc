@@ -1,5 +1,14 @@
-alias ls="ls -G"
+case $OSTYPE in
+    *linux* | *msys* ) alias ls="ls --color=auto" ;;
+    *darwin* )         alias ls="ls -G" ;;
+esac
+
 alias ll="ls -l"
 alias la="ls -a"
-alias emacs="emacs-24.5 -nw"
-export PS1="\h:\W \u\$ "
+
+export PS1="\A[\h@\u:\w]$ "
+
+if [ -e .bashrc_local ]
+then
+    source .bashrc_local
+fi
