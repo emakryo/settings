@@ -1,0 +1,5 @@
+alias ls="ls -G"
+alias ll="ls -l"
+alias la="ls -a"
+alias emacs="emacs-24.5 -nw"
+export PS1="\h:\W \u\$ "
