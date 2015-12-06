@@ -292,7 +292,7 @@
 ;; misc
 (defun my/run-make ()
   (interactive) (compile "make"))
-(bind-key* "C-;" 'my/run-make)
+(bind-key* "C-x m" 'my/run-make)
 (prefer-coding-system 'utf-8)
 
 ;; c and assembly indent with tab
