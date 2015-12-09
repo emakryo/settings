@@ -155,9 +155,9 @@
 (use-package multiple-cursors
   :ensure t
   :bind (("M-RET" . mc/edit-lines)
-         ("C-c C-." . mc/mark-next-like-this)
-         ("C-c C-," . mc/mark-previous-like-this)
-         ("C-c C-]" . mc/mark-all-like-this)))
+         ("C-c p ." . mc/mark-next-like-this)
+         ("C-c p ," . mc/mark-previous-like-this)
+         ("C-c p ]" . mc/mark-all-like-this)))
 
 ;; flycheck
 (use-package flycheck
@@ -182,6 +182,7 @@
   :ensure t
   :bind (("C-c C-t C-f" . helm-gtags-find-tag)
          ("C-c C-t C-r" . helm-gtags-find-rtag)
+         ("C-c C-t C-s" . helm-gtags-find-symbol)
          ("C-c C-t C-p" . helm-gtags-pop-stack))
   :config
   (add-hook 'c-mode-hook 'helm-gtags-mode)
@@ -212,10 +213,10 @@
   :ensure t)
 
 ;; quickrun
-(use-package quickrun
-  :ensure t
-  :config
-  (bind-key "C-c C-q" 'quickrun-shell prog-mode-map))
+;;(use-package quickrun
+;;  :ensure t
+;;  :config
+;;  (bind-key "C-c C-q" 'quickrun-shell prog-mode-map))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
