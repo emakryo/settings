@@ -110,6 +110,7 @@
 ;; package
 (defvar my/installed-packages
   '(auto-complete
+    coffee-mode
     expand-region
     flycheck
     haskell-mode
@@ -144,6 +145,9 @@
   :config
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
   (ac-config-default))
+
+(use-package coffee-mode
+  :ensure t)
 
 ;; expand-region
 (use-package expand-region
