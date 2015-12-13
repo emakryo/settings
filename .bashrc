@@ -4,8 +4,9 @@ then
 fi
 
 case $OSTYPE in
-    *linux* | *msys* ) alias ls="ls --color=auto" ;;
-    *darwin* )         alias ls="ls -G" ;;
+    *linux*  ) alias ls="ls --color=auto" ;;
+    *msys*   ) alias ls="ls --show-control-chars --color=auto" ;; 
+    *darwin* ) alias ls="ls -G" ;;
 esac
 
 alias ll="ls -l"
