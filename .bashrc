@@ -5,7 +5,7 @@ fi
 
 case $OSTYPE in
     *linux*  ) alias ls="ls --color=auto" ;;
-    *msys*   ) alias ls="ls --show-control-chars --color=auto" ;; 
+    *cygwin*   ) alias ls="ls --show-control-chars --color=auto" ;;
     *darwin* ) alias ls="ls -G" ;;
 esac
 
