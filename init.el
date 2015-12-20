@@ -67,7 +67,6 @@
      ("M-," . term-send-raw)
      ("M-." . comint-dynamic-complete))))
  '(term-unbind-key-list (quote ("C-x" "C-c" "<ESC>")))
- '(tool-bar-mode nil)
  '(tramp-default-method "ssh")
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
@@ -110,28 +109,28 @@
 ;; package
 (defvar my/installed-packages
   '(auto-complete
-    coffee-mode
     expand-region
     flycheck
-    haskell-mode
+;    haskell-mode
     helm
-    helm-gtags
-    tuareg
-    markdown-mode
+;    helm-gtags
+;    tuareg            ;; for ocaml
+;    markdown-mode
     magit
     multiple-cursors
     multi-term
-    php-mode
-    processing-mode
-    quickrun
+;    php-mode
     rainbow-delimiters
     shell-pop
     undo-tree
     use-package
-    web-mode))
+;    web-mode
+    ))
 
 (package-initialize)
-(package-refresh-contents)
+(unless (null (delq t (mapcar 'package-installed-p my/installed-packages)))
+  (package-refresh-contents))
+
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
@@ -145,9 +144,6 @@
   :config
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
   (ac-config-default))
-
-(use-package coffee-mode
-  :ensure t)
 
 ;; expand-region
 (use-package expand-region
@@ -171,7 +167,7 @@
 
 ;; haskell
 (use-package haskell-mode
-  :ensure t
+;  :ensure t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 )
@@ -183,7 +179,7 @@
   (helm-mode 1))
 
 (use-package helm-gtags
-  :ensure t
+;  :ensure t
   :bind (("C-c C-t C-f" . helm-gtags-find-tag)
          ("C-c C-t C-r" . helm-gtags-find-rtag)
          ("C-c C-t C-s" . helm-gtags-find-symbol)
@@ -202,7 +198,7 @@
 
 ;; markdown mode
 (use-package markdown-mode
-  :ensure t
+;  :ensure t
   :mode "\\.md\\'"
   :config
   (bind-key "C-c C-p" 'browse-url-of-buffer markdown-mode-map)
@@ -212,15 +208,6 @@
 (use-package multi-term
   :ensure t
   :bind* ("C-x t" . multi-term))
-
-(use-package php-mode
-  :ensure t)
-
-;; quickrun
-;;(use-package quickrun
-;;  :ensure t
-;;  :config
-;;  (bind-key "C-c C-q" 'quickrun-shell prog-mode-map))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
@@ -243,7 +230,7 @@
 
 ;; web-mode
 (use-package web-mode
-  :ensure t
+;  :ensure t
   :mode "\\.html?$")
 
 
@@ -280,19 +267,6 @@
 ;; octave
 (use-package octave-mode
   :mode "\\.m$")
-
-;; term
-;;(use-package term
-;;  :init
-;;  (defun my/toggle-term-char-line-mode ()
-;;    (interactive)
-;;    (if (term-in-char-mode)
-;;        (term-line-mode)
-;;      (term-char-mode)))
-;;  :commands term
-;;  :bind ("C-x C-z" . my/toggle-term-char-line-mode)
-;;  :config
-;;  (term-set-escape-char ?\C-x))
 
 ;; misc
 (defun my/run-make ()
