@@ -1,111 +1,5 @@
 ;; various
 
-;; customize
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(c-default-style
-   (quote
-    ((c-mode . "linux")
-     (java-mode . "java")
-     (awk-mode . "awk")
-     (other . "gnu"))))
- '(column-number-mode t)
- '(cua-enable-cua-keys nil)
- '(cua-mode t nil (cua-base))
- '(custom-enabled-themes nil)
- '(display-time-24hr-format t)
- '(display-time-day-and-date t)
- '(display-time-format "%R %m/%e")
- '(display-time-mode t)
- '(flycheck-c/c++-gcc-executable "gcc-5")
- '(gdb-many-windows nil)
- '(global-hl-line-mode t)
- '(global-linum-mode t)
- '(global-undo-tree-mode t)
- '(global-whitespace-mode t)
- '(helm-gtags-cache-select-result t)
- '(helm-mode-reverse-history nil)
- '(indent-tabs-mode nil)
- '(inhibit-startup-screen t)
- '(linum-format "%4d ")
- '(markdown-enable-math t)
- '(package-archives
-   (quote
-    (("marmalade" . "http://marmalade-repo.org/packages/")
-     ("melpa" . "http://melpa.milkbox.net/packages/")
-     ("gnu" . "http://elpa.gnu.org/packages/"))))
- '(shell-pop-shell-type (quote ("term" "*terminal*" (lambda nil (multi-term)))))
- '(tab-width 4)
- '(term-bind-key-alist
-   (quote
-    (("C-y" . term-paste)
-     ("C-c C-c" lambda nil
-      (interactive)
-      (term-send-raw-string ""))
-     ("C-c C-x" lambda nil
-      (interactive)
-      (term-send-raw-string ""))
-     ("C-c C-e" . term-send-esc)
-     ("C-s" . isearch-forward)
-     ("C-r" . isearch-backward)
-     ("C-m" . term-send-return)
-     ("M-f" . term-send-forward-word)
-     ("M-b" . term-send-backward-word)
-     ("M-o" . term-send-backspace)
-     ("M-p" . term-send-up)
-     ("M-n" . term-send-down)
-     ("M-M" . term-send-forward-kill-word)
-     ("M-N" . term-send-backward-kill-word)
-     ("<C-backspace>" . term-send-backward-kill-word)
-     ("M-r" . term-send-reverse-search-history)
-     ("M-," . term-send-raw)
-     ("M-." . comint-dynamic-complete))))
- '(term-unbind-key-list (quote ("C-x" "C-c" "<ESC>")))
- '(tramp-default-method "ssh")
- '(web-mode-code-indent-offset 2)
- '(web-mode-css-indent-offset 2)
- '(web-mode-markup-indent-offset 2)
- '(web-mode-sql-indent-offset 2)
- '(whitespace-action (quote (auto-cleanup)))
- '(whitespace-display-mappings
-   (quote
-    ((space-mark 12288
-                 [9633])
-     (tab-mark 9
-               [187 9]
-               [92 9]))))
- '(whitespace-space-regexp "\\(　+\\)")
- '(whitespace-style
-   (quote
-    (face tabs spaces trailing space-before-tab empty space-after-tab space-mark tab-mark)))
- '(windmove-wrap-around t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(highlight ((t (:background "color-52"))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "orange red"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "orange"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow green"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "spring green"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "cyan"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "medium orchid"))))
- '(undo-tree-visualizer-active-branch-face ((t (:foreground "white" :weight bold))))
- '(whitespace-empty ((t (:background "dark gray"))))
- '(whitespace-space ((t (:background "#232323" :foreground "dark red" :weight bold))))
- '(whitespace-tab ((t (:background "#232323" :foreground "LightSkyBlue" :underline t))))
- '(whitespace-trailing ((t (:background "#232323" :foreground "DeepPink" :underline t :weight bold)))))
-
 ;; package
 (defvar my/installed-packages
   '(auto-complete
@@ -298,6 +192,111 @@
   "Opens FILE with root privileges."
   (interactive "F")
   (set-buffer (find-file (concat "/sudo::" file))))
+
+;; customize
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(c-default-style
+   (quote
+    ((c-mode . "linux")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
+ '(column-number-mode t)
+ '(cua-enable-cua-keys nil)
+ '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes nil)
+ '(display-time-24hr-format t)
+ '(display-time-day-and-date t)
+ '(display-time-format "%R %m/%e")
+ '(display-time-mode t)
+ '(gdb-many-windows nil)
+ '(global-hl-line-mode t)
+ '(global-linum-mode t)
+ '(global-undo-tree-mode t)
+ '(global-whitespace-mode t)
+ '(helm-gtags-cache-select-result t)
+ '(helm-mode-reverse-history nil)
+ '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
+ '(linum-format "%4d ")
+ '(markdown-enable-math t)
+ '(package-archives
+   (quote
+    (("marmalade" . "http://marmalade-repo.org/packages/")
+     ("melpa" . "http://melpa.milkbox.net/packages/")
+     ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(shell-pop-shell-type (quote ("term" "*terminal*" (lambda nil (multi-term)))))
+ '(tab-width 4)
+ '(term-bind-key-alist
+   (quote
+    (("C-y" . term-paste)
+     ("C-c C-c" lambda nil
+      (interactive)
+      (term-send-raw-string ""))
+     ("C-c C-x" lambda nil
+      (interactive)
+      (term-send-raw-string ""))
+     ("C-c C-e" . term-send-esc)
+     ("C-s" . isearch-forward)
+     ("C-r" . isearch-backward)
+     ("C-m" . term-send-return)
+     ("M-f" . term-send-forward-word)
+     ("M-b" . term-send-backward-word)
+     ("M-o" . term-send-backspace)
+     ("M-p" . term-send-up)
+     ("M-n" . term-send-down)
+     ("M-M" . term-send-forward-kill-word)
+     ("M-N" . term-send-backward-kill-word)
+     ("<C-backspace>" . term-send-backward-kill-word)
+     ("M-r" . term-send-reverse-search-history)
+     ("M-," . term-send-raw)
+     ("M-." . comint-dynamic-complete))))
+ '(term-unbind-key-list (quote ("C-x" "C-c" "<ESC>")))
+ '(tramp-default-method "ssh")
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-sql-indent-offset 2)
+ '(whitespace-action (quote (auto-cleanup)))
+ '(whitespace-display-mappings
+   (quote
+    ((space-mark 12288
+                 [9633])
+     (tab-mark 9
+               [187 9]
+               [92 9]))))
+ '(whitespace-space-regexp "\\(　+\\)")
+ '(whitespace-style
+   (quote
+    (face tabs spaces trailing space-before-tab empty space-after-tab space-mark tab-mark)))
+ '(windmove-wrap-around t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(highlight ((t (:background "color-52"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "orange red"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow green"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "spring green"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "cyan"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "medium orchid"))))
+ '(undo-tree-visualizer-active-branch-face ((t (:foreground "white" :weight bold))))
+ '(whitespace-empty ((t (:background "dark gray"))))
+ '(whitespace-space ((t (:background "#232323" :foreground "dark red" :weight bold))))
+ '(whitespace-tab ((t (:background "#232323" :foreground "LightSkyBlue" :underline t))))
+ '(whitespace-trailing ((t (:background "#232323" :foreground "DeepPink" :underline t :weight bold)))))
 
 ;; load local settings
 (if window-system
