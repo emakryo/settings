@@ -1,6 +1,6 @@
-if [ -f .bashrc_local ]
+if [ -f ~/.bashrc_local ]
 then
-    source .bashrc_local
+    . ~/.bashrc_local
 fi
 
 case $OSTYPE in
