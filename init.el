@@ -42,16 +42,16 @@
 ;; expand-region
 (use-package expand-region
   :ensure t
-  :bind (("C-." . er/expand-region)
-         ("C-," . er/contract-region)))
+  :bind (("M-[ C-f" . er/expand-region)
+         ("M-[ C-b" . er/contract-region)))
 
 ;; multiple-cursors
 (use-package multiple-cursors
   :ensure t
-  :bind (("M-RET" . mc/edit-lines)
-         ("C-c p ." . mc/mark-next-like-this)
-         ("C-c p ," . mc/mark-previous-like-this)
-         ("C-c p ]" . mc/mark-all-like-this)))
+  :bind (("M-[ SPC" . mc/edit-lines)
+         ("M-[ C-n" . mc/mark-next-like-this)
+         ("M-[ C-p" . mc/mark-previous-like-this)
+         ("M-[ RET" . mc/mark-all-like-this)))
 
 ;; flycheck
 (use-package flycheck
@@ -74,10 +74,10 @@
 
 (use-package helm-gtags
 ;  :ensure t
-  :bind (("C-c C-t C-f" . helm-gtags-find-tag)
-         ("C-c C-t C-r" . helm-gtags-find-rtag)
-         ("C-c C-t C-s" . helm-gtags-find-symbol)
-         ("C-c C-t C-p" . helm-gtags-pop-stack))
+  :bind (("M-[ t f" . helm-gtags-find-tag)
+         ("M-[ t r" . helm-gtags-find-rtag)
+         ("M-[ t s" . helm-gtags-find-symbol)
+         ("M-[ t p" . helm-gtags-pop-stack))
   :config
   (add-hook 'c-mode-hook 'helm-gtags-mode)
   (add-hook 'asm-mode-hook 'helm-gtags-mode))
@@ -95,13 +95,14 @@
 ;  :ensure t
   :mode "\\.md\\'"
   :config
-  (bind-key "C-c C-p" 'browse-url-of-buffer markdown-mode-map)
-  (add-hook 'markdown-mode-hook
-            '(lambda () (setq-local whitespace-action nil)))) ;; fixme
+;  (bind-key "C-c C-p" 'browse-url-of-buffer markdown-mode-map)
+;  (add-hook 'markdown-mode-hook
+;            '(lambda () (setq-local whitespace-action nil))) ;; fixme
+  )
 
 (use-package multi-term
   :ensure t
-  :bind* ("C-x t" . multi-term))
+  :bind* ("M-[ [" . multi-term))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
@@ -113,7 +114,7 @@
 (use-package shell-pop
   :ensure t
   :commands shell-pop
-  :bind* ("C-x C-x" . shell-pop))
+  :bind* ("M-[ ]" . shell-pop))
 
 ;; undo tree
 (use-package undo-tree
@@ -165,7 +166,7 @@
 ;; misc
 (defun my/run-make ()
   (interactive) (compile "make"))
-(bind-key* "C-x m" 'my/run-make)
+(bind-key* "M-[ m" 'my/run-make)
 (prefer-coding-system 'utf-8)
 
 ;; c and assembly indent with tab
@@ -258,7 +259,7 @@
      ("M-r" . term-send-reverse-search-history)
      ("M-," . term-send-raw)
      ("M-." . comint-dynamic-complete))))
- '(term-unbind-key-list (quote ("C-x" "C-c" "<ESC>")))
+ '(term-unbind-key-list (quote ("C-x" "C-c" "C-z" "<ESC>")))
  '(tramp-default-method "ssh")
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
