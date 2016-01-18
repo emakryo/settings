@@ -266,6 +266,12 @@
 (use-package octave-mode
   :mode "\\.m$")
 
+;; latex
+(use-package latex-mode
+  :init
+  (add-hook 'latex-mode-hook 'flyspell-mode)
+  (add-hook 'latex-mode-hook 'auto-complete-mode))
+
 ;; misc
 (defun my/run-make ()
   (interactive) (compile "make"))
