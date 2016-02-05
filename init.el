@@ -163,17 +163,22 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; haskell
-(use-package haskell-mode
+;(use-package haskell-mode
 ;  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-)
+;  :config
+;  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;)
 
 ;; helm
 (use-package helm-config
   :ensure helm
   :config
-  (helm-mode 1))
+  (helm-mode 1)
+  (define-key global-map [remap find-file] 'helm-find-files)
+  (define-key global-map [remap occur] 'helm-occur)
+  (define-key global-map [remap list-buffers] 'helm-buffers-list)
+  (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
+  (global-set-key (kbd "M-x") 'helm-M-x))
 
 (use-package helm-gtags
 ;  :ensure t
