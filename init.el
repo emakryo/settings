@@ -145,16 +145,16 @@
 ;; expand-region
 (use-package expand-region
   :ensure t
-  :bind (("M-[ C-f" . er/expand-region)
-         ("M-[ C-b" . er/contract-region)))
+  :bind (("ESC M-C-f" . er/expand-region)
+         ("ESC M-C-b" . er/contract-region)))
 
 ;; multiple-cursors
 (use-package multiple-cursors
   :ensure t
-  :bind (("M-[ SPC" . mc/edit-lines)
-         ("M-[ C-n" . mc/mark-next-like-this)
-         ("M-[ C-p" . mc/mark-previous-like-this)
-         ("M-[ RET" . mc/mark-all-like-this)))
+  :bind (("ESC M-SPC" . mc/edit-lines)
+         ("ESC M-C-n" . mc/mark-next-like-this)
+         ("ESC M-C-p" . mc/mark-previous-like-this)
+         ("ESC M-C-j" . mc/mark-all-like-this)))
 
 ;; flycheck
 (use-package flycheck
