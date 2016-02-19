@@ -199,6 +199,12 @@
       :config
       (setq magit-last-seen-setup-instructions "1.4.0")))
 
+(use-package js2-jsx-mode
+  :mode "\\.js?\\'"
+  :config
+  (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
+  (add-hook 'js2-jsx-mode-hook 'flycheck-mode))
+
 
 ;; markdown mode
 (use-package markdown-mode
