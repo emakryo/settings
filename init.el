@@ -21,6 +21,7 @@
  '(display-time-day-and-date t)
  '(display-time-format "%R %m/%e")
  '(display-time-mode t)
+ '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(gdb-many-windows nil)
  '(global-hl-line-mode t)
  '(global-linum-mode t)
@@ -113,6 +114,7 @@
 ;    haskell-mode
     helm
 ;    helm-gtags
+;    js2-mode
 ;    tuareg            ;; for ocaml
 ;    markdown-mode
     magit
@@ -178,16 +180,16 @@
   (helm-mode 1)
   (define-key global-map [remap find-file] 'helm-find-files)
   (define-key global-map [remap occur] 'helm-occur)
-  (define-key global-map [remap list-buffers] 'helm-buffers-list)
+  ;(define-key global-map [remap list-buffers] 'helm-buffers-list)
   (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
   (global-set-key (kbd "M-x") 'helm-M-x))
 
 (use-package helm-gtags
 ;  :ensure t
-  :bind (("M-[ t f" . helm-gtags-find-tag)
-         ("M-[ t r" . helm-gtags-find-rtag)
-         ("M-[ t s" . helm-gtags-find-symbol)
-         ("M-[ t p" . helm-gtags-pop-stack))
+  :bind (("ESC M-C-t C-f" . helm-gtags-find-tag)
+         ("ESC M-C-t C-r" . helm-gtags-find-rtag)
+         ("ESC M-C-t C-s" . helm-gtags-find-symbol)
+         ("ESC M-C-t C-p" . helm-gtags-pop-stack))
   :config
   (add-hook 'c-mode-hook 'helm-gtags-mode)
   (add-hook 'asm-mode-hook 'helm-gtags-mode))
@@ -198,6 +200,12 @@
       :ensure t
       :config
       (setq magit-last-seen-setup-instructions "1.4.0")))
+
+;; js2-mode
+(use-package js2-jsx-mode
+  :mode "\\.js?\\'"
+  :config
+  (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode))
 
 
 ;; markdown mode
@@ -212,7 +220,7 @@
 
 (use-package multi-term
   :ensure t
-  :bind* ("M-[ [" . multi-term))
+  :bind* ("ESC M-C-s" . multi-term))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
@@ -224,7 +232,7 @@
 (use-package shell-pop
   :ensure t
   :commands shell-pop
-  :bind* ("M-[ ]" . shell-pop))
+  :bind* ("ESC M-C-u" . shell-pop))
 
 ;; undo tree
 (use-package undo-tree
@@ -243,28 +251,28 @@
 (windmove-default-keybindings)
 
 ;; tramp
-(require 'tramp)
-(defadvice tramp-do-copy-or-rename-file-out-of-band
-  (around ad-tramp-do-copy-or-rename-file-out-of-band activate)
-  (let ((default-directory "/"))
-    (unless (tramp-tramp-file-p (ad-get-arg 1))
-      (ad-set-arg 1 (substring
-                     (shell-command-to-string
-                      (concat "cygpath -u " (shell-quote-argument (ad-get-arg 1))))
-                     0 -1)))
-    (unless (tramp-tramp-file-p (ad-get-arg 2))
-      (ad-set-arg 2 (substring
-                     (shell-command-to-string
-                      (concat "cygpath -u " (shell-quote-argument (ad-get-arg 2))))
-                     0 -1))))
-  ad-do-it
-  (sit-for 0.1))
+;;(require 'tramp)
+;;(defadvice tramp-do-copy-or-rename-file-out-of-band
+;;  (around ad-tramp-do-copy-or-rename-file-out-of-band activate)
+;;  (let ((default-directory "/"))
+;;    (unless (tramp-tramp-file-p (ad-get-arg 1))
+;;      (ad-set-arg 1 (substring
+;;                     (shell-command-to-string
+;;                      (concat "cygpath -u " (shell-quote-argument (ad-get-arg 1))))
+;;                     0 -1)))
+;;    (unless (tramp-tramp-file-p (ad-get-arg 2))
+;;      (ad-set-arg 2 (substring
+;;                     (shell-command-to-string
+;;                      (concat "cygpath -u " (shell-quote-argument (ad-get-arg 2))))
+;;                     0 -1))))
+;;  ad-do-it
+;;  (sit-for 0.1))
 
 ;; hs-minor-mode
 (use-package hideshow
   :commands hs-minor-mode
-  :bind (("C-c C-h C-t" . hs-toggle-hiding)
-         ("C-c C-h C-a" . hs-hide-all))
+  :bind (("ESC M-C-h C-t" . hs-toggle-hiding)
+         ("ESC M-C-h C-a" . hs-hide-all))
   :init
   (add-hook 'c-mode-common-hook 'hs-minor-mode)
   (add-hook 'js-mode-hook 'hs-minor-mode))
