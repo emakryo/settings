@@ -112,7 +112,7 @@
     flycheck
 ;    haskell-mode
     helm
-;    helm-gtags
+    helm-gtags
 ;    tuareg            ;; for ocaml
 ;    markdown-mode
     magit
@@ -184,10 +184,10 @@
 
 (use-package helm-gtags
 ;  :ensure t
-  :bind (("M-[ t f" . helm-gtags-find-tag)
-         ("M-[ t r" . helm-gtags-find-rtag)
-         ("M-[ t s" . helm-gtags-find-symbol)
-         ("M-[ t p" . helm-gtags-pop-stack))
+  :bind (("ESC M-C-t C-f" . helm-gtags-find-tag)
+         ("ESC M-C-t C-r" . helm-gtags-find-rtag)
+         ("ESC M-C-t C-s" . helm-gtags-find-symbol)
+         ("ESC M-C-t C-p" . helm-gtags-pop-stack))
   :config
   (add-hook 'c-mode-hook 'helm-gtags-mode)
   (add-hook 'asm-mode-hook 'helm-gtags-mode))
