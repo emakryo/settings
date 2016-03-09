@@ -126,6 +126,11 @@
 ;    web-mode
     ))
 
+;; load local settings
+(let ((local_settings_file (concat (getenv "HOME") "/.emacs.d/local_init.el")))
+  (if (file-exists-p local_settings_file)
+      (load local_settings_file)))
+
 (package-initialize)
 (unless (null (delq t (mapcar 'package-installed-p my/installed-packages)))
   (package-refresh-contents))
@@ -288,8 +293,11 @@
 ;; misc
 (defun my/run-make ()
   (interactive) (compile "make"))
-(bind-key* "M-[ m" 'my/run-make)
+;;(bind-key* "M-[ m" 'my/run-make)
+
+
 (prefer-coding-system 'utf-8)
+(keyboard-translate ?\C-h ?\C-?)
 
 ;; c and assembly indent with tab
 (add-hook 'asm-mode-hook
@@ -315,7 +323,3 @@
   "Opens FILE with root privileges."
   (interactive "F")
   (set-buffer (find-file (concat "/sudo::" file))))
-
-;; load local settings
-(if window-system
-    (load (concat (getenv "HOME") "/.emacs.d/local_init.el")))
