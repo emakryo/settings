@@ -298,9 +298,15 @@
 (add-hook 'asm-mode-hook
           '(lambda ()
              (setq indent-tabs-mode t)))
+(add-hook 'asm-mode-hook
+          '(lambda ()
+             (setq tab-width 8)))
 (add-hook 'c-mode-hook
           '(lambda ()
              (setq indent-tabs-mode t)))
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (setq tab-width 8)))
 
 
 ;; open file using sudo
