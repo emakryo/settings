@@ -113,7 +113,8 @@
     flycheck
 ;    haskell-mode
     helm
-    helm-gtags
+;    helm-ag
+;    helm-gtags
 ;    js2-mode
 ;    tuareg            ;; for ocaml
 ;    markdown-mode
@@ -172,11 +173,11 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; haskell
-;(use-package haskell-mode
+(use-package haskell-mode
 ;  :ensure t
-;  :config
-;  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-;)
+  :config
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+)
 
 ;; helm
 (use-package helm-config
@@ -188,6 +189,9 @@
   ;(define-key global-map [remap list-buffers] 'helm-buffers-list)
   (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
   (global-set-key (kbd "M-x") 'helm-M-x))
+
+(use-package helm-ag
+  :bind (("ESC M-C-v" . helm-ag)))
 
 (use-package helm-gtags
 ;  :ensure t
