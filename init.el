@@ -304,7 +304,10 @@
 
 
 (prefer-coding-system 'utf-8)
-(keyboard-translate ?\C-h ?\C-?)
+(add-hook 'after-make-frame-functions
+          (lambda (f) (with-selected-frame f
+                        (keyboard-translate ?\C-h ?\C-?))))
+
 
 ;; c and assembly indent with tab
 (add-hook 'asm-mode-hook
