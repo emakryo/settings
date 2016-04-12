@@ -11,5 +11,6 @@ esac
 
 alias ll="ls -l"
 alias la="ls -a"
+alias emacs="emacs -nw"
 
 export PS1="\A[\h@\u:\w]$ "

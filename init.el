@@ -113,7 +113,8 @@
     flycheck
 ;    haskell-mode
     helm
-    helm-gtags
+;    helm-ag
+;    helm-gtags
 ;    js2-mode
 ;    tuareg            ;; for ocaml
 ;    markdown-mode
@@ -172,11 +173,11 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; haskell
-;(use-package haskell-mode
+(use-package haskell-mode
 ;  :ensure t
-;  :config
-;  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-;)
+  :config
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+)
 
 ;; helm
 (use-package helm-config
@@ -188,6 +189,9 @@
   ;(define-key global-map [remap list-buffers] 'helm-buffers-list)
   (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
   (global-set-key (kbd "M-x") 'helm-M-x))
+
+(use-package helm-ag
+  :bind (("ESC M-C-v" . helm-ag)))
 
 (use-package helm-gtags
 ;  :ensure t
@@ -300,15 +304,24 @@
 
 
 (prefer-coding-system 'utf-8)
-(keyboard-translate ?\C-h ?\C-?)
+(add-hook 'after-make-frame-functions
+          (lambda (f) (with-selected-frame f
+                        (keyboard-translate ?\C-h ?\C-?))))
+
 
 ;; c and assembly indent with tab
 (add-hook 'asm-mode-hook
           '(lambda ()
              (setq indent-tabs-mode t)))
+(add-hook 'asm-mode-hook
+          '(lambda ()
+             (setq tab-width 8)))
 (add-hook 'c-mode-hook
           '(lambda ()
              (setq indent-tabs-mode t)))
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (setq tab-width 8)))
 
 
 ;; open file using sudo
