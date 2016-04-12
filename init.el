@@ -51,7 +51,7 @@
      ("C-c C-x" lambda nil
       (interactive)
       (term-send-raw-string ""))
-     ("C-c C-e" . term-send-esc)
+     ("C-c Esc" . term-send-esc)
      ("C-s" . isearch-forward)
      ("C-r" . isearch-backward)
      ("C-m" . term-send-return)
