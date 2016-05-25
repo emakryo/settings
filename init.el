@@ -33,6 +33,8 @@
  '(helm-mode-reverse-history nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(ispell-highlight-face (quote flyspell-incorrect))
+ '(ispell-program-name "aspell")
  '(linum-format "%4d ")
  '(markdown-enable-math t)
  '(package-archives
@@ -304,9 +306,7 @@
 
 
 (prefer-coding-system 'utf-8)
-(add-hook 'after-make-frame-functions
-          (lambda (f) (with-selected-frame f
-                        (keyboard-translate ?\C-h ?\C-?))))
+(keyboard-translate ?\C-h ?\C-?)
 
 
 ;; c and assembly indent with tab
@@ -322,6 +322,9 @@
 (add-hook 'c-mode-hook
           '(lambda ()
              (setq tab-width 8)))
+
+(add-hook 'latex-mode-hook
+          'flyspell-mode)
 
 
 ;; open file using sudo
