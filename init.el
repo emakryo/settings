@@ -178,8 +178,7 @@
 (use-package haskell-mode
 ;  :ensure t
   :config
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))
 
 ;; helm
 (use-package helm-config
@@ -306,7 +305,8 @@
 
 
 (prefer-coding-system 'utf-8)
-(keyboard-translate ?\C-h ?\C-?)
+;;(keyboard-translate ?\C-h ?\C-?)
+(define-key key-translation-map [?\C-h] [?\C-?])
 
 
 ;; c and assembly indent with tab
