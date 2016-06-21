@@ -113,6 +113,7 @@
   '(auto-complete
     expand-region
     flycheck
+    gist
 ;    haskell-mode
     helm
 ;    helm-ag
