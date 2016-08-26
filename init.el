@@ -126,7 +126,7 @@
     multi-term
 ;    php-mode
     rainbow-delimiters
-    shell-pop
+;    shell-pop
     undo-tree
     use-package
 ;    web-mode
@@ -138,7 +138,8 @@
       (load local_settings_file)))
 
 (package-initialize)
-(unless (null (delq t (mapcar 'package-installed-p my/installed-packages)))
+(unless (null (car (delq t (mapcar 'package-installed-p my/installed-packages))))
+  (prin1 "pohe" t)
   (package-refresh-contents))
 
 (unless (package-installed-p 'use-package)
@@ -241,10 +242,10 @@
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 ;; shell-pop
-(use-package shell-pop
-  :ensure t
-  :commands shell-pop
-  :bind* ("ESC M-C-u" . shell-pop))
+;;(use-package shell-pop
+;;  :ensure t
+;;  :commands shell-pop
+;;  :bind* ("ESC M-C-u" . shell-pop))
 
 ;; undo tree
 (use-package undo-tree
