@@ -1,8 +1,3 @@
-if [ -f ~/.bashrc_local ]
-then
-    . ~/.bashrc_local
-fi
-
 case $OSTYPE in
     *linux*  ) alias ls="ls --color=auto" ;;
     *cygwin*   ) alias ls="ls --show-control-chars --color=auto" ;;
