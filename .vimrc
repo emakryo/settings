@@ -22,5 +22,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_pylint_args = '--disable=W'
+let g:syntastic_python_checkers = ["python", "flake8"]
 
-autocmd FileType tex set spell
+autocmd FileType tex setl spell
+autocmd FileType python setl expandtab
+inoremap # V<C-H>#
