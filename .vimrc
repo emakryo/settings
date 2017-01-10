@@ -24,3 +24,5 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_pylint_args = '--disable=W'
 
 autocmd FileType tex set spell
+autocmd FileType vhdl set expandtab
+autocmd FileType python set expandtab
