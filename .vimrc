@@ -11,7 +11,12 @@ set shiftwidth=4
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/syntastic'
+Plug 'tomasr/molokai'
 call plug#end()
+
+let g:molokai_original=1
+let g:rehash256=1
+colorscheme molokai
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
