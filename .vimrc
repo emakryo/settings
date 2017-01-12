@@ -29,7 +29,10 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_pylint_args = '--disable=W'
 let g:syntastic_python_checkers = ["python", "flake8"]
 
-autocmd FileType vhdl set expandtab
+autocmd FileType vhdl setl expandtab
 autocmd FileType tex setl spell
 autocmd FileType python setl expandtab
+autocmd FileType ruby setl expandtab
+autocmd FileType ruby setl tabstop=2
+autocmd FileType ruby setl shiftwidth=2
 inoremap # V<C-H>#
