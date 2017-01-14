@@ -35,4 +35,7 @@ autocmd FileType python setl expandtab
 autocmd FileType ruby setl expandtab
 autocmd FileType ruby setl tabstop=2
 autocmd FileType ruby setl shiftwidth=2
+autocmd FileType eruby setl expandtab
+autocmd FileType eruby setl tabstop=2
+autocmd FileType eruby setl shiftwidth=2
 inoremap # V<C-H>#
