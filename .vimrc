@@ -17,6 +17,7 @@ call plug#end()
 let g:molokai_original=1
 let g:rehash256=1
 colorscheme molokai
+highlight Normal ctermbg=none
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
