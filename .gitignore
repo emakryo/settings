@@ -1,2 +1,5 @@
 # emacs backup
 *~
+
+# vim-plug directory
+/.vim/plugged
