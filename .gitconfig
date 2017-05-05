@@ -1,0 +1,6 @@
+[user]
+	email = emak.ryo@gmail.com
+	name = Ryosuke Kamesawa
+
+[alias]
+	graph = log --graph --decorate=short --date=short --pretty='%C(auto)%h %ad %s %d'
