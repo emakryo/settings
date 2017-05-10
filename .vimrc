@@ -31,6 +31,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ["python", "flake8"]
 
 autocmd FileType vhdl setl expandtab
+autocmd FileType vhdl setl tabstop=2
+autocmd FileType vhdl setl shiftwidth=2
 autocmd FileType haskell setl expandtab
 autocmd FileType tex setl spell
 autocmd FileType python setl expandtab
