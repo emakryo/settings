@@ -17,7 +17,7 @@ echo ". $SCRIPT_DIR/bashrc" >> $HOME/.bashrc
 # load vim settings
 ln -s $SCRIPT_DIR/.vimrc $HOME
 ln -s $SCRIPT_DIR/.vim $HOME
-vim -c "PlugInstall" -c "quit"
+vim -c "PlugInstall" -c "qall"
 
 # load byobu settings
 [ -f $HOME/.byobu/.tmux.conf ] && mv $HOME/.byobu/.tmux.conf $HOME/.byobu/.tmux.conf.old
