@@ -21,8 +21,12 @@ vim -c "PlugInstall" -c "qall"
 
 # load byobu settings
 [ -f $HOME/.byobu/.tmux.conf ] && mv $HOME/.byobu/.tmux.conf $HOME/.byobu/.tmux.conf.old
-[ -d $HOME/.byobu ] && ln -s $SCRIPT_DIR/.tmux.conf $HOME/.byobu/
+[ -d $HOME/.byobu ] && ln -s $SCRIPT_DIR/byobu.tmux.conf $HOME/.byobu/.tmux.conf
+
+# load tmux settings
+[ -f $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.tmux.conf.old
+ln -s $SCRIPT_DIR/.tmux.conf $HOME
 
 # load git settings
-[ -f $HOME/.gitconfig ] && rm $HOME/.gitconfig
+[ -f $HOME/.gitconfig ] && rm $HOME/.gitconfig.old
 ln -s $SCRIPT_DIR/.gitconfig $HOME/
