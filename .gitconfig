@@ -3,4 +3,4 @@
 	name = Ryosuke Kamesawa
 
 [alias]
-	graph = log --graph --decorate=short --date=short --pretty='%C(auto)%h %ad %s %d'
+	graph = log --all --graph --decorate=short --date=short --pretty='%C(auto)%h %ad %s %d'
