@@ -14,7 +14,9 @@ if [ `echo $TERM | grep 256` ]; then
 	export PS1="$(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$ "
 fi
 
-shopt -s autocd
+if [ $BASH_VERSINFO -ge 4 ]; then
+	shopt -s autocd
+fi
 
 export LESS='-R'
 
