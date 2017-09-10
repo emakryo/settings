@@ -161,7 +161,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 #c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#c.InteractiveShell.banner1 = 'Python 3.6.0 |Anaconda 4.3.0 (64-bit)| (default, Dec 23 2016, 11:57:41) [MSC v.1900 64 bit (AMD64)]\nType "copyright", "credits" or "license" for more information.\n\nIPython 5.1.0 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
+#c.InteractiveShell.banner1 = 'Python 3.6.1 |Anaconda 4.4.0 (64-bit)| (default, May 11 2017, 13:09:58) \nType "copyright", "credits" or "license" for more information.\n\nIPython 5.3.0 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
 
 ## The part of the banner to be printed after the profile
 #c.InteractiveShell.banner2 = ''
@@ -293,16 +293,19 @@ c.InteractiveShellApp.extensions = ['autoreload']
 #c.TerminalInteractiveShell.editing_mode = 'emacs'
 
 ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
-#c.TerminalInteractiveShell.editor = 'notepad'
+#c.TerminalInteractiveShell.editor = 'vi'
 
-## Highlight matching brackets .
+## Enable vi (v) or Emacs (C-X C-E) shortcuts to open an external editor. This is
+#  in addition to the F2 binding, which is always enabled.
+#c.TerminalInteractiveShell.extra_open_editor_shortcuts = False
+
+## Highlight matching brackets.
 #c.TerminalInteractiveShell.highlight_matching_brackets = True
 
-## The name of a Pygments style to use for syntax highlighting:  default, emacs,
-#  friendly, colorful, autumn, murphy, manni, monokai, perldoc, pastie, borland,
-#  trac, native, fruity, bw, vim, vs, tango, rrt, xcode, igor, paraiso-light,
-#  paraiso-dark, lovelace, algol, algol_nu
-#c.TerminalInteractiveShell.highlighting_style = 'legacy'
+## The name or class of a Pygments style to use for syntax
+#         highlighting: 
+#  default, emacs, friendly, colorful, autumn, murphy, manni, monokai, perldoc, pastie, borland, trac, native, fruity, bw, vim, vs, tango, rrt, xcode, igor, paraiso-light, paraiso-dark, lovelace, algol, algol_nu, arduino, rainbow_dash, abap
+#c.TerminalInteractiveShell.highlighting_style = traitlets.Undefined
 
 ## Override highlighting format for specific tokens
 #c.TerminalInteractiveShell.highlighting_style_overrides = {}
