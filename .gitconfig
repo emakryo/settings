@@ -3,6 +3,7 @@
 	name = Ryosuke Kamesawa
 [alias]
 	graph = log --all --graph --decorate=short --date=short --pretty='%C(auto)%h %ad %s %d'
+	s = status
 [core]
 	editor = vim
 [push]
