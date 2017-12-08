@@ -11,7 +11,7 @@ alias emacs="emacs -nw"
 
 if [ `echo $TERM | grep 256` ]; then
 	color256 () { echo -n "\[\e[38;5;$1m\]$2\[\e[0m\]"; }
-	export PS1="$(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$ "
+	export PS1="$(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')$ "
 fi
 
 if [ $BASH_VERSINFO -ge 4 ]; then
