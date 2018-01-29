@@ -26,3 +26,6 @@ then
 else
 	alias diff='diff -u'
 fi
+
+shopt -s histappend
+HISTSIZE=50000

@@ -12,6 +12,7 @@ set shiftwidth=4
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/syntastic'
 Plug 'tomasr/molokai'
+Plug 'vim-latex/vim-latex'
 call plug#end()
 
 let g:molokai_original=1
@@ -35,6 +36,7 @@ autocmd FileType vhdl setl tabstop=2
 autocmd FileType vhdl setl shiftwidth=2
 autocmd FileType haskell setl expandtab
 autocmd FileType tex setl spell
+autocmd FileType plaintex setl spell
 autocmd FileType python setl expandtab
 autocmd FileType ruby setl expandtab
 autocmd FileType ruby setl tabstop=2
