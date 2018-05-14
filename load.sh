@@ -28,5 +28,7 @@ vim -c "PlugInstall" -c "qall"
 ln -s $SCRIPT_DIR/.tmux.conf $HOME
 
 # load git settings
-[ -f $HOME/.gitconfig ] && rm $HOME/.gitconfig.old
-ln -s $SCRIPT_DIR/.gitconfig $HOME/
+[ -f $HOME/.gitconfig ] && mv $HOME/.gitconfig $HOME/.gitconfig.old
+[ -f $HOME/.gitignore ] && mv $HOME/.gitignore $HOME/.gitignore.old
+ln -s $SCRIPT_DIR/.gitconfig $HOME
+ln -s $SCRIPT_DIR/.gitignore_global $HOME/.gitignore
