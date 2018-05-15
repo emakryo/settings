@@ -32,3 +32,7 @@ ln -s $SCRIPT_DIR/.tmux.conf $HOME
 [ -f $HOME/.gitignore ] && mv $HOME/.gitignore $HOME/.gitignore.old
 ln -s $SCRIPT_DIR/.gitconfig $HOME
 ln -s $SCRIPT_DIR/.gitignore_global $HOME/.gitignore
+
+# jupyter settings
+mkdir -p $HOME/.jupyter
+ln -s $SCRIPT_DIR/jupyter_nbconvert_config.py $HOME/.jupyter
