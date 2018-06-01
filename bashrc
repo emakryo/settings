@@ -11,21 +11,21 @@ alias emacs="emacs -nw"
 
 if [ `echo $TERM | grep 256` ]; then
 	color256 () { echo -n "\[\e[38;5;$1m\]$2\[\e[0m\]"; }
+	raw_color256 () { echo -ne "\e[38;5;$1m$2\e[0m"; }
 else
 	color256 () { echo -n $2; }
+	raw_color256 () { echo -n $2; }
 fi
 
-PROMPT_COMMAND=__prompt_command
-__prompt_command() {
-	local EXIT="$?"
-	if [ $EXIT != 0 ]; then
-		PS1="$(color256 9 $EXIT)"
+__color_exit_status() {
+	if [ $1 != 0 ]; then
+		raw_color256 9 $1
 	else
-		PS1="$(color256 10 $EXIT)"
+		raw_color256 10 $1
 	fi
-	PS1+=" $(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')$ "
 }
 
+PS1="\$(__color_exit_status \$?) $(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')$ "
 
 if [ $BASH_VERSINFO -ge 4 ]; then
 	shopt -s autocd
