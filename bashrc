@@ -11,7 +11,7 @@ alias emacs="emacs -nw"
 
 if [ `echo $TERM | grep 256` ]; then
 	color256 () { echo -n "\[\e[38;5;$1m\]$2\[\e[0m\]"; }
-	raw_color256 () { echo -ne "\e[38;5;$1m$2\e[0m"; }
+	raw_color256 () { echo -ne "\033[38;5;$1m$2\033[0m"; }
 else
 	color256 () { echo -n $2; }
 	raw_color256 () { echo -n $2; }
