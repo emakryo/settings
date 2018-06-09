@@ -11,21 +11,22 @@ alias emacs="emacs -nw"
 
 if [ `echo $TERM | grep 256` ]; then
 	color256 () { echo -n "\[\e[38;5;$1m\]$2\[\e[0m\]"; }
-	raw_color256 () { echo -ne "\033[38;5;$1m$2\033[0m"; }
+	raw_color256 () { echo -ne "\033[38;5;$1m$2\033[0m"; } # this causes incorrect line wrapping
 else
 	color256 () { echo -n $2; }
 	raw_color256 () { echo -n $2; }
 fi
 
-__color_exit_status() {
+__exit_color() {
 	if [ $1 != 0 ]; then
-		raw_color256 9 $1
+		echo 9
 	else
-		raw_color256 10 $1
+		echo 10
 	fi
+	exit $1
 }
 
-PS1="\$(__color_exit_status \$?) $(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')$ "
+PS1="$(color256 '$(__exit_color $?)' \$?) $(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')$ "
 
 if [ $BASH_VERSINFO -ge 4 ]; then
 	shopt -s autocd
