@@ -2,6 +2,7 @@
 	email = emak.ryo@gmail.com
 	name = Ryosuke Kamesawa
 [alias]
+	amend = commit --amend --no-edit
 	graph = log --all --graph --decorate=short --date=short --pretty='%C(auto)%h %ad %s %d'
 	history = log -p --follow --
 	s = status

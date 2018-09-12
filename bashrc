@@ -8,6 +8,7 @@ alias l="ls"
 alias ll="ls -l"
 alias la="ls -a"
 alias emacs="emacs -nw"
+alias g++="g++ -std=c++11"
 
 if [ `echo $TERM | grep 256` ]; then
 	color256 () { echo -n "\[\e[38;5;$1m\]$2\[\e[0m\]"; }

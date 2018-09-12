@@ -3,3 +3,6 @@
 
 # vim backup
 *.swp
+
+# pycharm dir
+.idea

@@ -30,6 +30,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_pylint_args = '--disable=W'
 let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_cpp_compiler_options = "-std=c++11"
 
 autocmd FileType vhdl setl expandtab
 autocmd FileType vhdl setl tabstop=2
