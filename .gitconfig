@@ -5,6 +5,7 @@
 	amend = commit --amend --no-edit
 	graph = log --all --graph --decorate=short --date=short --pretty='%C(auto)%h %ad %s %d'
 	history = log -p --follow --
+	lsha1 = rev-parse --short HEAD
 	s = status
 [core]
 	editor = vim
@@ -13,3 +14,8 @@
 	default = simple
 [credential]
 	helper = store
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
