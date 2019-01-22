@@ -4,5 +4,8 @@
 # vim backup
 *.swp
 
-# pycharm dir
+# pycharm
 .idea
+
+# MacOS hidden file
+.DS_Store
