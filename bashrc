@@ -27,7 +27,15 @@ __exit_color() {
 	exit $1
 }
 
-PS1="$(color256 '$(__exit_color $?)' \$?) $(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')$ "
+__ps1_base="$(color256 '$(__exit_color $?)' \$?) $(color256 81 \\A) $(color256 161 \\u)@$(color256 208 \\h): $(color256 118 '$(basename \w)')$(color256 135 '$(__git_ps1)')"
+
+__new_line_if_narrow() {
+	if [ `tput cols` -le 80 ]; then
+		echo '\n'
+	fi
+}
+
+PROMPT_COMMAND='PS1=$__ps1_base$(__new_line_if_narrow)$ '
 
 if [ $BASH_VERSINFO -ge 4 ]; then
 	shopt -s autocd
