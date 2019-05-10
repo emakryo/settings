@@ -35,7 +35,7 @@ __new_line_if_narrow() {
 	fi
 }
 
-PROMPT_COMMAND='PS1=$__ps1_base$(__new_line_if_narrow)$ '
+PROMPT_COMMAND='PS1=$CONDA_PROMPT_MODIFIER$__ps1_base$(__new_line_if_narrow)"$ "'
 
 if [ $BASH_VERSINFO -ge 4 ]; then
 	shopt -s autocd
