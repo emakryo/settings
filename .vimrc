@@ -41,6 +41,10 @@ augroup default
 	autocmd FileType tex setl spell
 	autocmd FileType plaintex setl spell
 	autocmd FileType python setl expandtab
+	autocmd BufNewFile,BufRead *.xsh set syntax=python
+	autocmd BufNewFile,BufRead *xonshrc set syntax=python
+	autocmd BufNewFile,BufRead *.xsh setl expandtab
+	autocmd BufNewFile,BufRead *xonshrc setl expandtab
 	autocmd FileType ruby setl expandtab
 	autocmd FileType ruby setl tabstop=2
 	autocmd FileType ruby setl shiftwidth=2

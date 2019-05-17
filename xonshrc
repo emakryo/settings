@@ -1,0 +1,30 @@
+#source-bash -s False ~/.bashrc
+source /usr/local/anaconda3/lib/python3.7/site-packages/xonsh/conda.xsh
+$cmd = $(/usr/libexec/path_helper -s)
+source-bash --overwrite-alias $cmd
+conda activate base
+
+$AUTO_CD = True
+$base_prompt = ("{env_name}"
+           + "{RED}{user}{NO_COLOR}@"
+           + "{YELLOW}{hostname}{NO_COLOR}:"
+           + "{GREEN}{cwd_base}{NO_COLOR} "
+           + "{PURPLE}{curr_branch}{NO_COLOR}\n{prompt_end} ")
+
+from datetime import datetime
+
+@events.on_pre_prompt
+def update_prompt():
+    try:
+        return_code = str(__xonsh__.history[-1].rtn)
+    except:
+        return_code = '0'
+
+    if return_code == '0':
+        color = "GREEN"
+    else:
+        color = "INTENSE_RED"
+
+    return_code = "{"+color+"}"+return_code+"{NO_COLOR} "
+    time = "{CYAN}"+datetime.now().strftime("%H:%M")+"{NO_COLOR} "
+    $PROMPT = return_code + time + $base_prompt
