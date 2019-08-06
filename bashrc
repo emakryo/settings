@@ -52,3 +52,21 @@ fi
 
 shopt -s histappend
 HISTSIZE=50000
+
+countdown(){
+	date1=$((`date +%s` + $1));
+	while [ "$date1" -ge `date +%s` ]; do 
+    ## Is this more than 24h away?
+    #days=$(($(($(( $date1 - $(date +%s))) * 1 ))/86400))
+    echo -ne "  $(date -j -v+15H -f '%s' $(($date1 - `date +%s`)) +%H:%M:%S)\r";
+    sleep 0.1
+    done
+}
+stopwatch(){
+    date1=`date +%s`; 
+    while true; do 
+    days=$(( $(($(date +%s) - date1)) / 86400 ))
+    echo -ne "  $(date -j -v+15H -f '%s' $((`date +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+    done
+}
