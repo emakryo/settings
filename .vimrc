@@ -30,7 +30,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_pylint_args = '--disable=W'
 let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_cpp_compiler_options = "-std=c++11"
+let g:syntastic_cpp_compiler = "g++-8"
+let g:syntastic_cpp_compiler_options = "-std=gnu++14"
 
 augroup default
 	autocmd!
