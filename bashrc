@@ -8,7 +8,22 @@ alias l="ls"
 alias ll="ls -l"
 alias la="ls -a"
 alias emacs="emacs -nw"
-alias g++="g++ -std=c++11"
+
+mkcd () {
+	if [ ! -n "$1" ]; then
+		echo Usage: mkcd directory
+		return 1
+	elif [ -d "$1" ]; then
+		echo "$1": Already exists
+		cd "$1"
+	elif [ -e "$1" ]; then
+		echo "$1": Not a directory
+		return 1
+	else
+		mkdir -p "$1" && cd "$1"
+	fi
+}
+
 
 if [ `echo $TERM | grep 256` ]; then
 	color256 () { echo -n "\[\e[38;5;$1m\]$2\[\e[0m\]"; }
@@ -70,9 +85,4 @@ stopwatch(){
 	echo -ne "  $(date -j -v+15H -f '%s' $((`date +%s` - $date1)) +%H:%M:%S)\r";
 	sleep 0.1
 	done
-}
-
-mkcd(){
-	mkdir -p "$1"
-	cd "$1"
 }
