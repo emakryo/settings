@@ -34,5 +34,5 @@ ln -s $SCRIPT_DIR/.gitconfig $HOME
 ln -s $SCRIPT_DIR/.gitignore_global $HOME/.gitignore
 
 # jupyter settings
-mkdir -p $HOME/.jupyter
-ln -s $SCRIPT_DIR/jupyter_nbconvert_config.py $HOME/.jupyter
+# mkdir -p $HOME/.jupyter
+# ln -s $SCRIPT_DIR/jupyter_nbconvert_config.py $HOME/.jupyter
