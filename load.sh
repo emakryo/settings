@@ -40,3 +40,6 @@ ln -s $SCRIPT_DIR/.gitignore_global $HOME/.gitignore
 # load mise settings
 mkdir -p $HOME/.config
 ln -s $SCRIPT_DIR/mise.toml $HOME/.config/mise.toml
+
+# load zshrc
+ln -s $SCRIPT_DIR/.zshrc $HOME
