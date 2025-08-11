@@ -1,0 +1,20 @@
+# Personal mise configuration file
+
+[settings]
+idiomatic_version_file_enable_tools = ["python"]
+
+[tasks.login-aws]
+description = "Login to AWS using SSO"
+run = "aws sso login --profile ${AWS_PROFILE:-$(aws configure list-profiles | sk --height 10)}"
+
+[tasks.login-ecr]
+description = "Login to ECR using AWS CLI"
+run = """
+export AWS_REGION=${AWS_REGION:-ap-northeast-1}
+export AWS_PROFILE=${AWS_PROFILE:-$(aws configure list-profiles | sk --height 10)}
+aws ecr get-login-password | docker login --username AWS --password-stdin $(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_REGION}.amazonaws.com
+"""
+
+[tasks.forward-adb]
+description = "Forward local adb port to a remote host"
+run = "ssh -NR 5037:localhost:5037 $1"

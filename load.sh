@@ -20,8 +20,8 @@ ln -s $SCRIPT_DIR/.vim $HOME
 vim -c "PlugInstall" -c "qall"
 
 # load byobu settings
-[ -f $HOME/.byobu/.tmux.conf ] && mv $HOME/.byobu/.tmux.conf $HOME/.byobu/.tmux.conf.old
-[ -d $HOME/.byobu ] && ln -s $SCRIPT_DIR/byobu.tmux.conf $HOME/.byobu/.tmux.conf
+# [ -f $HOME/.byobu/.tmux.conf ] && mv $HOME/.byobu/.tmux.conf $HOME/.byobu/.tmux.conf.old
+# [ -d $HOME/.byobu ] && ln -s $SCRIPT_DIR/byobu.tmux.conf $HOME/.byobu/.tmux.conf
 
 # load tmux settings
 [ -f $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.tmux.conf.old
@@ -36,3 +36,7 @@ ln -s $SCRIPT_DIR/.gitignore_global $HOME/.gitignore
 # jupyter settings
 # mkdir -p $HOME/.jupyter
 # ln -s $SCRIPT_DIR/jupyter_nbconvert_config.py $HOME/.jupyter
+
+# load mise settings
+mkdir -p $HOME/.config
+ln -s $SCRIPT_DIR/mise.toml $HOME/.config/mise.toml

@@ -12,6 +12,7 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+	recurseSubmodules = on-demand
 [credential]
 	helper = store
 [filter "lfs"]
@@ -21,3 +22,9 @@
 	smudge = git-lfs smudge -- %f
 [pull]
 	ff = only
+[submodule]
+	recurse = true
+[fetch]
+	recurseSubmodules = on-demand
+[clone]
+	filterSubmodules = true
