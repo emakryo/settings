@@ -9,3 +9,7 @@
 
 # MacOS hidden file
 .DS_Store
+
+# mise local configuration file
+mise.local.toml
+mise.*.local.toml
