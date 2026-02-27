@@ -103,5 +103,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(env mise activate zsh)"
+if [[ -o interactive ]]; then
+  eval "$(env mise activate zsh)"
+fi
 uv tool update-shell
+
+alias mr="mise run"
+
+eval "$(direnv hook zsh)"
+export PATH="/opt/homebrew/opt/icu4c@78/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c@78/sbin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/user/.antigravity/antigravity/bin:$PATH"

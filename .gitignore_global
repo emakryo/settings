@@ -13,3 +13,9 @@
 # mise local configuration file
 mise.local.toml
 mise.*.local.toml
+
+# claude local configuration file
+.claude/*.local.json
+
+# worktrees for parallel checkout
+.worktrees
