@@ -43,3 +43,12 @@ ln -s $SCRIPT_DIR/mise $HOME/.config/mise
 
 # load zshrc
 ln -s $SCRIPT_DIR/.zshrc $HOME
+
+# load claude code settings
+mkdir -p $HOME/.claude
+[ -f $HOME/.claude/CLAUDE.md ] && mv $HOME/.claude/CLAUDE.md $HOME/.claude/CLAUDE.md.old
+[ -f $HOME/.claude/settings.json ] && mv $HOME/.claude/settings.json $HOME/.claude/settings.json.old
+[ -d $HOME/.claude/skills ] && mv $HOME/.claude/skills $HOME/.claude/skills.old
+ln -s $SCRIPT_DIR/claude/CLAUDE.md $HOME/.claude/CLAUDE.md
+ln -s $SCRIPT_DIR/claude/settings.json $HOME/.claude/settings.json
+ln -s $SCRIPT_DIR/claude/skills $HOME/.claude/skills
