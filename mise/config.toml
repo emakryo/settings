@@ -8,16 +8,33 @@ awscli-local = "latest"
 node = "22"
 rust = "latest"
 tokei = "latest"
+cargo-binstall = "latest"
+uv = "latest"
+python = "3.13.13"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python", "node"]
 
+[tasks.ensure-sk]
+description = "Install sk (skim) if not present"
+hide = true
+run = """
+if ! command -v sk > /dev/null 2>&1; then
+  echo "sk (skim) is not installed. Installing..."
+  cargo binstall skim
+fi
+"""
+
 [tasks.login-aws]
 description = "Login to AWS using SSO"
-run = "aws sso login --profile ${AWS_PROFILE:-$(aws configure list-profiles | sk --height 10)}"
+depends = ["ensure-sk"]
+run = """
+aws sso login --profile ${AWS_PROFILE:-$(aws configure list-profiles | sk --height 10)}
+"""
 
 [tasks.login-ecr]
 description = "Login to ECR using AWS CLI"
+depends = ["ensure-sk"]
 run = """
 export AWS_REGION=${AWS_REGION:-ap-northeast-1}
 export AWS_PROFILE=${AWS_PROFILE:-$(aws configure list-profiles | sk --height 10)}

@@ -1,4 +1,9 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(gh run view:*)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -11,11 +16,24 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "figma@claude-plugins-official": true,
+    "braintrust@braintrust-claude-plugin": true
+  },
+  "extraKnownMarketplaces": {
+    "braintrust-claude-plugin": {
+      "source": {
+        "source": "github",
+        "repo": "braintrustdata/braintrust-claude-plugin"
+      }
+    }
+  },
   "language": "日本語",
   "alwaysThinkingEnabled": true,
-  "permissions": {
-    "allow": [
-      "Bash(gh run view:*)"
-    ]
-  }
+  "effortLevel": "xhigh",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

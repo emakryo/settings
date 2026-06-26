@@ -1,5 +1,7 @@
 # Global Claude Code Settings
 
+CRITICAL: You must execute tool calls exactly using the specified XML/JSON format. Do not output raw text like "court", "course", "call" or loose "<invoke>" tags outside of a valid tool execution block.
+
 ## Git Workflow & Worktree Policy
 
 ### 作業ディレクトリの決定ルール
@@ -11,10 +13,17 @@
 ### Worktree Strategy (In-Project Worktree)
 Claude Code はカレントディレクトリ外のファイルでの自動編集ができないため、以下の手順でプロジェクト内に worktree を作成します。
 
+ユーザーからベースブランチの指定がない場合は、デフォルトブランチの最新をリモートから取得してからそれを base に worktree を作成します。指定がある場合はその指定に従ってください。
+
 ```bash
-# ベースブランチは現在チェックアウトされているブランチを使用
-git worktree add .worktrees/<feature-name> -b <feature-name> HEAD
+# デフォルト: リモートのデフォルトブランチ最新から worktree を作成
+git fetch origin <default-branch>
+git worktree add .worktrees/<feature-name> -b <feature-name> origin/<default-branch>
+
+# ユーザーが別のベースブランチを指定した場合はそれを使用
+# git worktree add .worktrees/<feature-name> -b <feature-name> <base-branch>
 ```
+
 
 ## Test-Driven Development (TDD) の徹底
 
